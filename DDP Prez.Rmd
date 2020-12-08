@@ -1,0 +1,42 @@
+---
+title: "DDP Project"
+author: "Nikhil Mohinani"
+date: "12/8/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+This peer assessed assignment has two parts. First, you will create a Shiny application and deploy it on Rstudio's servers. Second, you will use Slidify or Rstudio Presenter to prepare a reproducible pitch presentation about your application.
+
+App: https://nvmohinani.shinyapps.io/DDP_Project/
+
+ui.R and server.R: https://github.com/nvmohinani/DDP
+
+
+## fIFA 20 Player Rating Comparison
+
+This app enables comparison of FIFA 20's top 50 ranked outfield players.
+
+Attribute filters include age, height, weight, overall rating, weak foot strength, skill level, pace, shooting, dribbling, defending and more. The table will output players that meet the criteria you set from the filters.
+
+## Data
+
+The data is a Kaggle dataset of all FIFA 20 players' attributes.
+
+```{r fif, echo = TRUE}
+players <- read.csv("players_20.csv", header = TRUE)
+head(players[, -c(1, 2, 4, 14:104)])
+```
+
+## Relationship of age with pace
+
+```{r pace}
+plot(players$age, players$pace)
+```
+
+## Thank you
